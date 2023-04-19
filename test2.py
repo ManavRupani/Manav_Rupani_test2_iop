@@ -36,10 +36,18 @@ while(loop_==1):
         if user_input=="1":
             try:
                 x1=input("\nEnter name: ")
-                if not x1.isalpha():
-                    print("\nPlease enter only alphabetical characters for name")
-                    break
-                else:
+                # if not x1.isalpha() and not x1.isspace():
+                #     print("\nPlease enter only alphabetical characters for name")
+                #     break
+                # else:
+                #     y1=input("\nEnter your 10-digit phone number: ")
+                #     if y1==teNdig_Test(y1):
+                #         phoneDirectory[x1]=y1
+                #         print("\nRecord added")
+                #         break
+                #     else:
+                #         break
+                if all(a.isalpha() or a.isspace() for a in x1):
                     y1=input("\nEnter your 10-digit phone number: ")
                     if y1==teNdig_Test(y1):
                         phoneDirectory[x1]=y1
@@ -47,6 +55,10 @@ while(loop_==1):
                         break
                     else:
                         break
+                else:
+                    print("\nPlease enter only alphabetical characters for name")
+                    break
+            
             except:
                 print("\nUnable to add Record")
                 break
